@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 
 const BASE_URL = "https://randomuser.me/api/";
 
@@ -17,9 +17,8 @@ class Users extends Component {
   render() {
       
     const { users } = this.state;
-    console.log(users)
     return <div>
-      {users ? users.map((user, i) => <div key={i}><img src={user.picture.medium}/>{user.name.first}  {user.name.last} {user.email}</div>): ''}
+      {users ? users.map((user, i) => <div key={i} style={{display: 'flex', justifyContent: 'space-around'}}><img src={user.picture.medium} alt='avatar'/><span>NAME: {user.name.first}</span><span>LASTNAME: {user.name.last}</span> <span>EMAIL:{user.email}</span></div>): ''}
       </div>
     
   }
